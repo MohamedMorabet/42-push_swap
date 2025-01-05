@@ -6,42 +6,11 @@
 /*   By: mel-mora <mel-mora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 18:14:58 by mel-mora          #+#    #+#             */
-/*   Updated: 2025/01/04 19:23:40 by mel-mora         ###   ########.fr       */
+/*   Updated: 2025/01/05 13:19:33 by mel-mora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-// void	add_node(t_stack_node **stack, int value)
-// {
-// 	t_stack_node	*new;
-// 	t_stack_node	*last;
-
-// 	new = malloc(sizeof(t_stack_node));
-// 	if (!new)
-// 		exit_error();
-// 	new->value = value;
-// 	new->current_position = 0;
-// 	new->final_index = 0;
-// 	new->push_price = 0;
-// 	new->above_median = false;
-// 	new->cheapest = false;
-// 	new->target_node = NULL;
-// 	new->next = NULL;
-// 	if (!*stack)
-// 	{
-// 		new->prev = NULL;
-// 		*stack = new;
-// 	}
-// 	else
-// 	{
-// 		last = *stack;
-// 		while (last->next)
-// 			last = last->next;
-// 		last->next = new;
-// 		new->prev = last;
-// 	}
-// }
 
 void	initialize_node(t_stack_node *node, int value)
 {
@@ -57,17 +26,20 @@ void	initialize_node(t_stack_node *node, int value)
 
 void	add_node(t_stack_node **stack, int value)
 {
-	t_stack_node *new;
-	t_stack_node *last;
+	t_stack_node	*new;
+	t_stack_node	*last;
 
 	new = malloc(sizeof(t_stack_node));
 	if (!new)
 		exit_error();
 	initialize_node(new, value);
-	if (!*stack) {
+	if (!*stack)
+	{
 		new->prev = NULL;
 		*stack = new;
-	} else {
+	}
+	else
+	{
 		last = *stack;
 		while (last->next)
 			last = last->next;

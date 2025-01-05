@@ -6,7 +6,7 @@
 /*   By: mel-mora <mel-mora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 16:54:45 by mel-mora          #+#    #+#             */
-/*   Updated: 2025/01/05 13:11:23 by mel-mora         ###   ########.fr       */
+/*   Updated: 2025/01/05 13:28:26 by mel-mora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@
 // {
 // 	system("leaks push_swap");
 // }
-int main(int ac, char **av)
+// atexit(check_leaks); add it in the beggening of the main
+int	main(int ac, char **av)
 {
-	t_stack_node *a;
-	t_stack_node *b;
+	t_stack_node	*a;
+	t_stack_node	*b;
 
-	// atexit(check_leaks);
 	a = NULL;
 	b = NULL;
 	if (ac == 1 || ((ac == 2) && !av[1][0]))
@@ -31,16 +31,12 @@ int main(int ac, char **av)
 	create_stack(&a, ac, av);
 	if (!is_sorted(a))
 	{
-		
-		// printf("Not sorted\n");
+		printf("Not sorted\n");
 	}
-
 	printf("a :\n");
 	print_stack(a);
 	printf("\nb :\n");
 	print_stack(b);
-
-	
 	free_sack(&a);
 	free_sack(&b);
 }

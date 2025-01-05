@@ -6,43 +6,44 @@
 /*   By: mel-mora <mel-mora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 16:46:08 by mel-mora          #+#    #+#             */
-/*   Updated: 2025/01/04 19:27:46 by mel-mora         ###   ########.fr       */
+/*   Updated: 2025/01/05 13:25:11 by mel-mora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-long long   ft_atoll(const char *str)
+long long	ft_atoll(const char *str)
 {
-    long long   res;
-    int         sign;
+	long long	res;
+	int			sign;
 
-    res = 0;
-    sign = 1;
-    if (*str == ' ' || *str == '\t' || *str == '\n' || *str == '\v' || *str == '\f' || *str == '\r')
-        str++;
-    if (*str == '-' || *str == '+')
-    {
-        if (*str == '-')
-            sign = -1;
-        str++;
-    }
-    while (*str)
-    {
-        if (*str >= '0' && *str <= '9')
-        {
-            res = res * 10 + *str - '0';
-            str++;
-        }
-        else
-            exit_error();
-    }
-    return (res * sign);
+	res = 0;
+	sign = 1;
+	if (*str == ' ' || *str == '\t' || *str == '\n'
+		|| *str == '\v' || *str == '\f' || *str == '\r')
+		str++;
+	if (*str == '-' || *str == '+')
+	{
+		if (*str == '-')
+			sign = -1;
+		str++;
+	}
+	while (*str)
+	{
+		if (*str >= '0' && *str <= '9')
+		{
+			res = res * 10 + *str - '0';
+			str++;
+		}
+		else
+			exit_error();
+	}
+	return (res * sign);
 }
 
-int is_digit(char *str)
+int	is_digit(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (str[i] == '-' || str[i] == '+')
@@ -62,15 +63,15 @@ void	exit_error(void)
 	exit(1);
 }
 
-void free_split(char **split)
+void	free_split(char **split)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    while (split[i])
-    {
-        free(split[i]);
-        i++;
-    }
-    free(split);
+	i = 0;
+	while (split[i])
+	{
+		free(split[i]);
+		i++;
+	}
+	free(split);
 }
