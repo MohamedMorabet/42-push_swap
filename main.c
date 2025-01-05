@@ -6,7 +6,7 @@
 /*   By: mel-mora <mel-mora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 16:54:45 by mel-mora          #+#    #+#             */
-/*   Updated: 2025/01/05 13:28:26 by mel-mora         ###   ########.fr       */
+/*   Updated: 2025/01/05 21:37:41 by mel-mora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,16 @@ int	main(int ac, char **av)
 	create_stack(&a, ac, av);
 	if (!is_sorted(a))
 	{
-		printf("Not sorted\n");
+		if (ac == 4)
+			tiny_sort(&a);
+		else
+			push_swap(&a, &b);
+		// printf("Not sorted\n");
 	}
-	printf("a :\n");
-	print_stack(a);
-	printf("\nb :\n");
-	print_stack(b);
+	// printf("\na :\n");
+	// print_stack(a);
+	// printf("\nb :\n");
+	// print_stack(b);
 	free_sack(&a);
 	free_sack(&b);
 }

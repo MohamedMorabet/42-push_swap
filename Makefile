@@ -6,14 +6,16 @@ NAME = push_swap
 
 AR = ar
 
-SRCS = main.c \
+SRCS =	algorithms.c \
+		main.c \
 		manage_stack.c \
-		operations__swap_push.c \
-		operations__rotate.c \
 		operations__reverse_rotate.c \
+		operations__rotate.c \
+		operations__swap_push.c \
 		operations_utils.c \
 		parcing.c \
 		push_swap__utils.c \
+		push_swap__utils2.c \
 		push_swap.c \
 		stack_utils.c \
 

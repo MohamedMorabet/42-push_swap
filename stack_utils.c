@@ -6,7 +6,7 @@
 /*   By: mel-mora <mel-mora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 18:14:58 by mel-mora          #+#    #+#             */
-/*   Updated: 2025/01/05 13:19:33 by mel-mora         ###   ########.fr       */
+/*   Updated: 2025/01/05 21:15:26 by mel-mora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,8 @@ void	initialize_node(t_stack_node *node, int value)
 {
 	node->value = value;
 	node->current_position = 0;
-	node->final_index = 0;
 	node->push_price = 0;
-	node->above_median = false;
+	node->above_moy = false;
 	node->cheapest = false;
 	node->target_node = NULL;
 	node->next = NULL;
@@ -68,4 +67,17 @@ int	is_sorted(t_stack_node *stack)
 		stack = stack->next;
 	}
 	return (1);
+}
+
+int	len_stack(t_stack_node *stack)
+{
+	int	len;
+
+	len = 0;
+	while (stack)
+	{
+		len++;
+		stack = stack->next;
+	}
+	return (len);
 }
