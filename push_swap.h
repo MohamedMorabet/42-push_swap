@@ -6,7 +6,7 @@
 /*   By: mel-mora <mel-mora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 16:54:57 by mel-mora          #+#    #+#             */
-/*   Updated: 2025/01/04 19:28:05 by mel-mora         ###   ########.fr       */
+/*   Updated: 2025/01/05 13:10:16 by mel-mora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,24 @@ int	    is_digit(char *str);
 void	free_sack(t_stack_node **stack);
 long long	ft_atoll(const char *str);
 void	free_split(char **split);
+void	print_stack(t_stack_node *stack);
+
+//operations
+void	swap_a(t_stack_node **a);
+void	swap_b(t_stack_node **b);
+void	swap_ab(t_stack_node **a, t_stack_node **b);
+void	push_a(t_stack_node **a, t_stack_node **b);
+void	push_b(t_stack_node **b, t_stack_node **a);
+void	rotate_a(t_stack_node **a);
+void	rotate_b(t_stack_node **b);
+void	rotate_ab(t_stack_node **a, t_stack_node **b);
+void	reverse_rotate_a(t_stack_node **a);
+void	reverse_rotate_b(t_stack_node **b);
+void	reverse_rotate_ab(t_stack_node **a, t_stack_node **b);
+
+t_stack_node	*ft_lastnode(t_stack_node *lst);
+
+
 // void	initialize_node(t_stack_node *node, int value);
 
 #endif

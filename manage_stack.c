@@ -6,7 +6,7 @@
 /*   By: mel-mora <mel-mora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 16:40:25 by mel-mora          #+#    #+#             */
-/*   Updated: 2025/01/04 19:28:41 by mel-mora         ###   ########.fr       */
+/*   Updated: 2025/01/05 10:11:04 by mel-mora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,17 @@ void	free_sack(t_stack_node **stack)
 		tmp = *stack;
 		*stack = (*stack)->next;
 		free(tmp);
+	}
+}
+
+void	print_stack(t_stack_node *stack)
+{
+	t_stack_node	*tmp;
+
+	tmp = stack;
+	while (tmp)
+	{
+		printf("%d\n", tmp->value);
+		tmp = tmp->next;
 	}
 }

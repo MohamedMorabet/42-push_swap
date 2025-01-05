@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   opertions.c                                        :+:      :+:    :+:   */
+/*   operations_utils.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mel-mora <mel-mora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/04 20:06:36 by mel-mora          #+#    #+#             */
-/*   Updated: 2025/01/04 21:57:09 by mel-mora         ###   ########.fr       */
+/*   Created: 2025/01/05 12:28:00 by mel-mora          #+#    #+#             */
+/*   Updated: 2025/01/05 12:38:32 by mel-mora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	swap_a(t_stack_node	**a)
+t_stack_node	*ft_lastnode(t_stack_node *lst)
 {
-	t_stack_node	*tmp;
+	t_stack_node	*lastel;
 
-	if (*a && (*a)->next)
+	lastel = lst;
+	while (lastel && lastel->next != NULL)
 	{
-		tmp = *a;
-		*a = (*a)->next;
-		(*a)->prev = NULL;
-		(*a)->next = tmp; 
-		tmp->next = (*a)->next;
-		(*a)->next->prev = tmp;
+		lastel = lastel->next;
 	}
+	return (lastel);
 }
