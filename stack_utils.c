@@ -6,7 +6,7 @@
 /*   By: mel-mora <mel-mora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 18:14:58 by mel-mora          #+#    #+#             */
-/*   Updated: 2025/01/05 21:15:26 by mel-mora         ###   ########.fr       */
+/*   Updated: 2025/01/07 17:33:21 by mel-mora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	initialize_node(t_stack_node *node, int value)
 	node->cheapest = false;
 	node->target_node = NULL;
 	node->next = NULL;
+	node->rank = 0;
 }
 
 void	add_node(t_stack_node **stack, int value)

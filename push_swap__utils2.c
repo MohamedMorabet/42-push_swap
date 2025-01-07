@@ -6,7 +6,7 @@
 /*   By: mel-mora <mel-mora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 18:22:29 by mel-mora          #+#    #+#             */
-/*   Updated: 2025/01/05 21:12:47 by mel-mora         ###   ########.fr       */
+/*   Updated: 2025/01/07 19:58:23 by mel-mora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,4 +64,11 @@ t_stack_node	*ft_highest(t_stack_node *lst)
 		tmp = tmp->next;
 	}
 	return (highest);
+}
+
+int	max_between(int a, int b)
+{
+	if (a > b)
+		return (a);
+	return (b);
 }

@@ -6,7 +6,7 @@
 /*   By: mel-mora <mel-mora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 12:49:20 by mel-mora          #+#    #+#             */
-/*   Updated: 2025/01/05 13:26:24 by mel-mora         ###   ########.fr       */
+/*   Updated: 2025/01/07 16:52:58 by mel-mora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,26 @@ void	reverse_rotate_b(t_stack_node **b)
 	printf("rrb\n");
 }
 
+void	reverse_rotate(t_stack_node **b)
+{
+	t_stack_node	*tmp;
+	t_stack_node	*last;
+
+	if (b && *b && (*b)->next)
+	{
+		last = ft_lastnode(*b);
+		tmp = last->prev;
+		last->prev = NULL;
+		last->next = *b;
+		(*b)->prev = last;
+		(*b) = last;
+		tmp->next = NULL;
+	}
+}
+
 void	reverse_rotate_ab(t_stack_node **a, t_stack_node **b)
 {
-	reverse_rotate_a(a);
-	reverse_rotate_b(b);
+	reverse_rotate(a);
+	reverse_rotate(b);
 	printf("rrr\n");
 }

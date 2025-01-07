@@ -6,7 +6,7 @@
 /*   By: mel-mora <mel-mora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 16:54:45 by mel-mora          #+#    #+#             */
-/*   Updated: 2025/01/05 21:37:41 by mel-mora         ###   ########.fr       */
+/*   Updated: 2025/01/07 18:19:48 by mel-mora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int	main(int ac, char **av)
 	else if (ac == 2)
 		av = ft_split(av[1], ' ');
 	create_stack(&a, ac, av);
+	set_rank(a);
 	if (!is_sorted(a))
 	{
 		if (ac == 4)

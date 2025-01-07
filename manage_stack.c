@@ -6,7 +6,7 @@
 /*   By: mel-mora <mel-mora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 16:40:25 by mel-mora          #+#    #+#             */
-/*   Updated: 2025/01/05 13:26:49 by mel-mora         ###   ########.fr       */
+/*   Updated: 2025/01/07 19:41:06 by mel-mora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,39 @@ void	print_stack(t_stack_node *stack)
 	tmp = stack;
 	while (tmp)
 	{
-		printf("%d\n", tmp->value);
+		printf("%d ", tmp->value);
+		// print current_position
+		printf(" - current_position: %d", tmp->current_position);
+		// print above_moy
+		printf(" - above_moy: %d", tmp->above_moy);
+		// print rank
+		printf(" - rank: %d\n", tmp->rank);
+		tmp = tmp->next;
+	}
+}
+
+void	print_stack2(t_stack_node *stack)
+{
+	t_stack_node	*tmp;
+
+	tmp = stack;
+	while (tmp)
+	{
+		printf("%d ", tmp->value);
+		// print target node
+		printf(" - target node: %d", tmp->target_node->value);
+		// print current_position target
+		printf(" - current_position target: %d", tmp->target_node->current_position);
+		// print target above_moy
+		printf(" - above_moy target: %d", tmp->target_node->above_moy);
+		// print cheapest
+		printf(" - cheapest: %d", tmp->cheapest);
+		// print above_moy
+		printf(" - above_moy: %d", tmp->above_moy);
+		// print push_price
+		printf(" - push_price: %d", tmp->push_price);
+		// print current_position
+		printf(" - current_position: %d\n", tmp->current_position);
 		tmp = tmp->next;
 	}
 }

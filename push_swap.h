@@ -6,7 +6,7 @@
 /*   By: mel-mora <mel-mora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 16:54:57 by mel-mora          #+#    #+#             */
-/*   Updated: 2025/01/05 21:14:59 by mel-mora         ###   ########.fr       */
+/*   Updated: 2025/01/07 20:13:47 by mel-mora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ typedef struct s_stack_node
 {
 	int					value;
 	int					current_position;
+	int					rank;
 	int					push_price;
 	bool				above_moy;
 	bool				cheapest;
@@ -43,7 +44,17 @@ void			free_sack(t_stack_node **stack);
 long long		ft_atoll(const char *str);
 void			free_split(char **split);
 void			print_stack(t_stack_node *stack);
+void			print_stack2(t_stack_node *stack);
 int				len_stack(t_stack_node *stack);
+
+// -------------rank and chunk---------------
+void			set_rank(t_stack_node *stack);
+void			move_by_chunks(t_stack_node **a, t_stack_node **b, int chunk);
+int				no_elements_in_chunk(t_stack_node *a, int chunk_min,
+					int chunk_max);
+int				*create_table(t_stack_node *stack);
+void			sort_table(int *tab, int len);
+int				get_rank(int *tab, int len, int value);
 
 // -------------operations---------------
 void			swap_a(t_stack_node **a); //swap
@@ -54,9 +65,11 @@ void			push_b(t_stack_node **b, t_stack_node **a);
 void			rotate_a(t_stack_node **a); // rotate
 void			rotate_b(t_stack_node **b);
 void			rotate_ab(t_stack_node **a, t_stack_node **b);
+void			rotate(t_stack_node **b);
 void			reverse_rotate_a(t_stack_node **a); // reverse rotate
 void			reverse_rotate_b(t_stack_node **b);
 void			reverse_rotate_ab(t_stack_node **a, t_stack_node **b);
+void			reverse_rotate(t_stack_node **b);
 
 // -------------operations_utils--------------
 t_stack_node	*ft_lastnode(t_stack_node *lst);
@@ -83,5 +96,9 @@ void			rotate_both(t_stack_node **a, t_stack_node **b,
 					t_stack_node *cheapest);
 void			reverse_rotate_both(t_stack_node **a, t_stack_node **b,
 					t_stack_node *cheapest);
+int				max_between(int a, int b);
+void			calculate_price_above_moy(t_stack_node *b, int len_a);
+void			calculate_price_below_moy(t_stack_node *b, int len_a,
+					int len_b);
 
 #endif

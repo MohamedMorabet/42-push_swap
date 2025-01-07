@@ -6,7 +6,7 @@
 /*   By: mel-mora <mel-mora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 12:25:07 by mel-mora          #+#    #+#             */
-/*   Updated: 2025/01/05 13:11:47 by mel-mora         ###   ########.fr       */
+/*   Updated: 2025/01/07 19:56:22 by mel-mora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,26 @@ void	rotate_b(t_stack_node **b)
 	printf("rb\n");
 }
 
+void	rotate(t_stack_node **b)
+{
+	t_stack_node	*tmp;
+	t_stack_node	*last;
+
+	if (b && *b && (*b)->next)
+	{
+		tmp = (*b);
+		last = ft_lastnode(*b);
+		(*b) = (*b)->next;
+		(*b)->prev = NULL;
+		last->next = tmp;
+		tmp->prev = last;
+		tmp->next = NULL;
+	}
+}
+
 void	rotate_ab(t_stack_node **a, t_stack_node **b)
 {
-	rotate_a(a);
-	rotate_b(b);
+	rotate(a);
+	rotate(b);
 	printf("rr\n");
 }

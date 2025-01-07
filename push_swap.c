@@ -6,7 +6,7 @@
 /*   By: mel-mora <mel-mora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 15:14:16 by mel-mora          #+#    #+#             */
-/*   Updated: 2025/01/05 21:13:33 by mel-mora         ###   ########.fr       */
+/*   Updated: 2025/01/07 19:42:30 by mel-mora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,21 @@ void	push_swap(t_stack_node **a, t_stack_node **b)
 {
 	int				len;
 	t_stack_node	*lowest;
+	int				chunk;
 
 	len = len_stack(*a);
-	while (len-- > 3)
-		push_b(b, a);
+	chunk = len / 5;
+	if (len <= 200)
+		chunk = 65;
+	else 
+		chunk = len / 5;
+	move_by_chunks(a, b, chunk);
 	tiny_sort(a);
 	while (*b)
 	{
 		intialize_stack(*a, *b);
 		move_to_a(a, b);
 	}
-	set_position(*a);
 	lowest = ft_lowest(*a);
 	while (*a != lowest)
 	{
@@ -42,9 +46,12 @@ void	move_to_a(t_stack_node **a, t_stack_node **b)
 	t_stack_node	*cheapest;
 
 	cheapest = get_cheapest(*b);
-	if (cheapest->above_moy && cheapest->target_node->above_moy)
+	while ((*b) != cheapest && cheapest->above_moy
+		&& (*a) != cheapest->target_node && cheapest->target_node->above_moy)
 		rotate_both(a, b, cheapest);
-	else if (!cheapest->above_moy && !cheapest->target_node->above_moy)
+	while ((*b) != cheapest && cheapest->above_moy == false
+		&& (*a) != cheapest->target_node
+		&& cheapest->target_node->above_moy == false)
 		reverse_rotate_both(a, b, cheapest);
 	finish_rotation_a(a, cheapest->target_node);
 	finish_rotation_b(b, cheapest);

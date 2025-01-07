@@ -6,7 +6,7 @@
 /*   By: mel-mora <mel-mora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 16:55:56 by mel-mora          #+#    #+#             */
-/*   Updated: 2025/01/05 21:11:49 by mel-mora         ###   ########.fr       */
+/*   Updated: 2025/01/07 20:11:35 by mel-mora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,17 @@ void	set_position(t_stack_node *stack)
 	int	i;
 	int	center;
 
-	i = 0;
+	i = 1;
 	if (stack == NULL)
 		return ;
-	center = len_stack(stack) / 2;
+	center = len_stack(stack) / 2 + len_stack(stack) % 2;
 	while (stack)
 	{
 		stack->current_position = i;
-		if (i >= center)
+		if (i <= center)
 			stack->above_moy = true;
+		else
+			stack->above_moy = false;
 		stack = stack->next;
 		i++;
 	}
@@ -76,13 +78,10 @@ void	set_price(t_stack_node *a, t_stack_node *b)
 	len_b = len_stack(b);
 	while (b)
 	{
-		b->push_price = b->current_position;
-		if (!(b->above_moy))
-			b->push_price = len_b - b->current_position;
-		if (b->target_node->above_moy)
-			b->push_price += b->target_node->current_position;
+		if (b->above_moy)
+			calculate_price_above_moy(b, len_a);
 		else
-			b->push_price += len_a - (b->target_node->current_position);
+			calculate_price_below_moy(b, len_a, len_b);
 		b = b->next;
 	}
 }

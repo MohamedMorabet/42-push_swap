@@ -16,8 +16,11 @@ SRCS =	algorithms.c \
 		parcing.c \
 		push_swap__utils.c \
 		push_swap__utils2.c \
+		push_swap__utils3.c \
 		push_swap.c \
 		stack_utils.c \
+		rank_stack.c \
+		move_by_chunk.c \
 
 OBJS = ${SRCS:.c=.o}
 
