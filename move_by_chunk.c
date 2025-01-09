@@ -6,7 +6,7 @@
 /*   By: mel-mora <mel-mora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 18:30:47 by mel-mora          #+#    #+#             */
-/*   Updated: 2025/01/07 19:55:09 by mel-mora         ###   ########.fr       */
+/*   Updated: 2025/01/09 00:47:30 by mel-mora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,8 @@ int	no_elements_in_chunk(t_stack_node *a, int chunk_min, int chunk_max)
 	while (a)
 	{
 		if (a->rank >= chunk_min && a->rank < chunk_max)
-		// Found an element in the chunk
 			return (0);
 		a = a->next;
 	}
-	// No elements in the chunk
 	return (1);
 }

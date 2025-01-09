@@ -1,39 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_split__utils__bonus.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mel-mora <mel-mora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/03 16:54:45 by mel-mora          #+#    #+#             */
-/*   Updated: 2025/01/09 00:56:46 by mel-mora         ###   ########.fr       */
+/*   Created: 2025/01/08 19:21:50 by mel-mora          #+#    #+#             */
+/*   Updated: 2025/01/09 00:43:02 by mel-mora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-int	main(int ac, char **av)
+int	ft_isdigit(int c)
 {
-	t_stack_node	*a;
-	t_stack_node	*b;
-
-	a = NULL;
-	b = NULL;
-	if (ac == 1 || ((ac == 2) && !av[1][0]))
+	if (c <= '9' && c >= '0')
 		return (1);
-	else if (ac == 2)
-		av = ft_split(av[1], ' ');
-	create_stack(&a, ac, av);
-	set_rank(a);
-	if (!is_sorted(a))
+	return (0);
+}
+
+void	free_split(char **split)
+{
+	int	i;
+
+	i = 0;
+	while (split[i])
 	{
-		if (ac == 4)
-			tiny_sort(&a);
-		else if (ac <= 6)
-			sort_five(&a, &b);
-		else
-			push_swap(&a, &b);
+		free(split[i]);
+		i++;
 	}
-	free_stack(&a);
-	free_stack(&b);
+	free(split);
 }

@@ -6,7 +6,7 @@
 /*   By: mel-mora <mel-mora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 17:33:49 by mel-mora          #+#    #+#             */
-/*   Updated: 2025/01/07 20:17:52 by mel-mora         ###   ########.fr       */
+/*   Updated: 2025/01/09 00:46:32 by mel-mora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,10 @@ void	set_rank(t_stack_node *stack)
 	if (!tab)
 		exit_error();
 	sort_table(tab, len);
-	// Preserve original pointer
 	temp = stack;
 	while (temp)
 	{
 		rank = get_rank(tab, len, temp->value);
-		// Handle missing value
 		if (rank == -1)
 			exit_error();
 		temp->rank = rank;
