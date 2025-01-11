@@ -6,7 +6,7 @@
 /*   By: mel-mora <mel-mora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 16:40:25 by mel-mora          #+#    #+#             */
-/*   Updated: 2025/01/09 00:39:39 by mel-mora         ###   ########.fr       */
+/*   Updated: 2025/01/11 08:40:49 by mel-mora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,23 +25,23 @@ void	create_stack(t_stack_node **a, int ac, char **av)
 	{
 		if (!is_digit(av[i]))
 		{
-			free_sack(a);
+			free_stack(a);
 			exit_error();
 		}
-		if (ft_atoll(av[i]) > 2147483647 || ft_atoll(av[i]) < -2147483648)
+		if (ft_atoi(av[i]) > 2147483647 || ft_atoi(av[i]) < -2147483648)
 		{
-			free_sack(a);
+			free_stack(a);
 			exit_error();
 		}
-		if (is_repeated(*a, ft_atoll(av[i])))
+		if (is_repeated(*a, ft_atoi(av[i])))
 			exit_error();
-		add_node(a, ft_atoll(av[i++]));
+		add_node(a, ft_atoi(av[i++]));
 	}
 	if (ac == 2)
 		free_split(av);
 }
 
-void	free_sack(t_stack_node **stack)
+void	free_stack(t_stack_node **stack)
 {
 	t_stack_node	*tmp;
 
@@ -53,39 +53,48 @@ void	free_sack(t_stack_node **stack)
 	}
 }
 
-void	exit_error(void)
+static int	check_overflow(unsigned long result, int nb, int sign)
 {
-	write(2, "Error\n", 6);
-	exit(1);
+	if (sign == 1)
+	{
+		if ((result >= 214748364 && nb > 7) 
+			|| result >= 214748365)
+			return (1);
+	}
+	if (sign == -1)
+	{
+		if ((result >= 214748364 && nb > 8) 
+			|| result > 214748365)
+			return (1);
+	}
+	return (0);
 }
 
-long long	ft_atoll(const char *str)
+int	ft_atoi(const char *str)
 {
-	long long	res;
-	int			sign;
+	int				i;
+	int				sign;
+	int				result;
 
-	res = 0;
+	i = 0;
+	result = 0;
 	sign = 1;
-	if (*str == ' ' || *str == '\t' || *str == '\n'
-		|| *str == '\v' || *str == '\f' || *str == '\r')
-		str++;
-	if (*str == '-' || *str == '+')
+	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
+		i++;
+	if (str[i] == '-' || str[i] == '+')
 	{
-		if (*str == '-')
-			sign = -1;
-		str++;
+		if (str[i] == '-')
+			sign *= -1;
+		i++;
 	}
-	while (*str)
+	while (str[i] >= '0' && str[i] <= '9')
 	{
-		if (*str >= '0' && *str <= '9')
-		{
-			res = res * 10 + *str - '0';
-			str++;
-		}
-		else
+		if (check_overflow(result, str[i] - '0', sign))
 			exit_error();
+		result = result * 10 + (str[i] - '0');
+		i++;
 	}
-	return (res * sign);
+	return (result * sign);
 }
 
 int	is_digit(char *str)

@@ -6,7 +6,7 @@
 /*   By: mel-mora <mel-mora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 20:08:27 by mel-mora          #+#    #+#             */
-/*   Updated: 2025/01/07 20:12:25 by mel-mora         ###   ########.fr       */
+/*   Updated: 2025/01/10 16:06:41 by mel-mora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,10 @@ void	calculate_price_below_moy(t_stack_node *b, int len_a, int len_b)
 	else
 		b->push_price = len_b - b->current_position
 			+ b->target_node->current_position;
+}
+
+void	ft_putstr(char *str)
+{
+	while (*str)
+		write(1, str++, 1);
 }

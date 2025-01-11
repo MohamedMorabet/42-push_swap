@@ -6,7 +6,7 @@
 /*   By: mel-mora <mel-mora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 18:30:14 by mel-mora          #+#    #+#             */
-/*   Updated: 2025/01/09 00:40:30 by mel-mora         ###   ########.fr       */
+/*   Updated: 2025/01/10 16:04:47 by mel-mora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,11 @@ int	main(int ac, char **av)
 		opearation = get_next_line(STDIN_FILENO);
 	}
 	if (!is_sorted(a))
-		printf("KO\n");
+		ft_putstr("KO\n");
 	else
-		printf("OK\n");
-	free_sack(&a);
-	free_sack(&b);
+		ft_putstr("OK\n");
+	free_stack(&a);
+	free_stack(&b);
 }
 
 void	do_operation(t_stack_node **a, t_stack_node **b, char *operation)

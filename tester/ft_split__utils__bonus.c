@@ -6,7 +6,7 @@
 /*   By: mel-mora <mel-mora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 19:21:50 by mel-mora          #+#    #+#             */
-/*   Updated: 2025/01/09 00:43:02 by mel-mora         ###   ########.fr       */
+/*   Updated: 2025/01/10 16:06:10 by mel-mora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,10 @@ void	free_split(char **split)
 		i++;
 	}
 	free(split);
+}
+
+void	ft_putstr(char *str)
+{
+	while (*str)
+		write(1, str++, 1);
 }

@@ -6,7 +6,7 @@
 /*   By: mel-mora <mel-mora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 16:40:25 by mel-mora          #+#    #+#             */
-/*   Updated: 2025/01/09 00:56:14 by mel-mora         ###   ########.fr       */
+/*   Updated: 2025/01/11 08:34:25 by mel-mora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,14 @@ void	create_stack(t_stack_node **a, int ac, char **av)
 			free_stack(a);
 			exit_error();
 		}
-		if (ft_atoll(av[i]) > 2147483647 || ft_atoll(av[i]) < -2147483648)
+		if (ft_atoi(av[i]) > 2147483647 || ft_atoi(av[i]) < -2147483648)
 		{
 			free_stack(a);
 			exit_error();
 		}
-		if (is_repeated(*a, ft_atoll(av[i])))
+		if (is_repeated(*a, ft_atoi(av[i])))
 			exit_error();
-		add_node(a, ft_atoll(av[i++]));
+		add_node(a, ft_atoi(av[i++]));
 	}
 	if (ac == 2)
 		free_split(av);

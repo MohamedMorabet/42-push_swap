@@ -6,39 +6,54 @@
 /*   By: mel-mora <mel-mora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 16:46:08 by mel-mora          #+#    #+#             */
-/*   Updated: 2025/01/05 13:25:11 by mel-mora         ###   ########.fr       */
+/*   Updated: 2025/01/11 08:38:58 by mel-mora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-long long	ft_atoll(const char *str)
+static int	check_overflow(unsigned long result, int nb, int sign)
 {
-	long long	res;
-	int			sign;
+	if (sign == 1)
+	{
+		if ((result >= 214748364 && nb > 7) 
+			|| result >= 214748365)
+			return (1);
+	}
+	if (sign == -1)
+	{
+		if ((result >= 214748364 && nb > 8) 
+			|| result > 214748365)
+			return (1);
+	}
+	return (0);
+}
 
-	res = 0;
+int	ft_atoi(const char *str)
+{
+	int				i;
+	int				sign;
+	int				result;
+
+	i = 0;
+	result = 0;
 	sign = 1;
-	if (*str == ' ' || *str == '\t' || *str == '\n'
-		|| *str == '\v' || *str == '\f' || *str == '\r')
-		str++;
-	if (*str == '-' || *str == '+')
+	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
+		i++;
+	if (str[i] == '-' || str[i] == '+')
 	{
-		if (*str == '-')
-			sign = -1;
-		str++;
+		if (str[i] == '-')
+			sign *= -1;
+		i++;
 	}
-	while (*str)
+	while (str[i] >= '0' && str[i] <= '9')
 	{
-		if (*str >= '0' && *str <= '9')
-		{
-			res = res * 10 + *str - '0';
-			str++;
-		}
-		else
+		if (check_overflow(result, str[i] - '0', sign))
 			exit_error();
+		result = result * 10 + (str[i] - '0');
+		i++;
 	}
-	return (res * sign);
+	return (result * sign);
 }
 
 int	is_digit(char *str)

@@ -6,7 +6,7 @@
 /*   By: mel-mora <mel-mora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 16:54:57 by mel-mora          #+#    #+#             */
-/*   Updated: 2025/01/09 00:59:23 by mel-mora         ###   ########.fr       */
+/*   Updated: 2025/01/11 08:33:30 by mel-mora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define PUSH_SWAP_H
 
 # include "tester/gnl/get_next_line.h"
-# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdbool.h>
@@ -46,7 +45,7 @@ int				is_repeated(t_stack_node *stack, int value);
 int				is_sorted(t_stack_node *stack);
 int				is_digit(char *str);
 void			free_stack(t_stack_node **stack);
-long long		ft_atoll(const char *str);
+int				ft_atoi(const char *str);
 void			free_split(char **split);
 int				len_stack(t_stack_node *stack);
 
@@ -129,6 +128,7 @@ char			*ft_substr(char const *s, unsigned int start, size_t len);
 size_t			ft_strlen(const char *str);
 char			*ft_strdup(const char *s);
 int				ft_isdigit(int c);
+void			ft_putstr(char *str);
 
 /*
 ** ------------------ Bonus Operations ------------------

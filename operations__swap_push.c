@@ -6,7 +6,7 @@
 /*   By: mel-mora <mel-mora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 20:06:36 by mel-mora          #+#    #+#             */
-/*   Updated: 2025/01/05 13:12:20 by mel-mora         ###   ########.fr       */
+/*   Updated: 2025/01/10 15:55:48 by mel-mora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	swap_a(t_stack_node	**a)
 		(*a)->prev = NULL;
 		(*a)->next = tmp;
 		tmp->prev = *a;
-		printf("sa\n");
+		ft_putstr("sa\n");
 	}
 }
 
@@ -44,7 +44,7 @@ void	swap_b(t_stack_node	**b)
 		(*b)->prev = NULL;
 		(*b)->next = tmp;
 		tmp->prev = *b;
-		printf("sb\n");
+		ft_putstr("sb\n");
 	}
 }
 
@@ -52,7 +52,7 @@ void	swap_ab(t_stack_node **a, t_stack_node **b)
 {
 	swap_a(a);
 	swap_b(b);
-	printf("ss\n");
+	ft_putstr("ss\n");
 }
 
 void	push_b(t_stack_node **b, t_stack_node **a)
@@ -70,7 +70,7 @@ void	push_b(t_stack_node **b, t_stack_node **a)
 		(*b)->prev = tmp;
 	*b = tmp;
 	(*b)->prev = NULL;
-	printf("pb\n");
+	ft_putstr("pb\n");
 }
 
 void	push_a(t_stack_node **a, t_stack_node **b)
@@ -88,5 +88,5 @@ void	push_a(t_stack_node **a, t_stack_node **b)
 		(*a)->prev = tmp;
 	*a = tmp;
 	(*a)->prev = NULL;
-	printf("pa\n");
+	ft_putstr("pa\n");
 }
