@@ -6,7 +6,7 @@
 /*   By: mel-mora <mel-mora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 16:54:57 by mel-mora          #+#    #+#             */
-/*   Updated: 2025/01/11 08:33:30 by mel-mora         ###   ########.fr       */
+/*   Updated: 2025/01/21 13:01:33 by mel-mora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ void			free_stack(t_stack_node **stack);
 int				ft_atoi(const char *str);
 void			free_split(char **split);
 int				len_stack(t_stack_node *stack);
+int				ft_count_words(char **str);
 
 /*
 ** ------------------ Rank and Chunk Operations ------------------

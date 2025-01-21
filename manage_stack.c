@@ -6,12 +6,13 @@
 /*   By: mel-mora <mel-mora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 16:40:25 by mel-mora          #+#    #+#             */
-/*   Updated: 2025/01/11 08:34:25 by mel-mora         ###   ########.fr       */
+/*   Updated: 2025/01/21 13:03:15 by mel-mora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+void	set_i_ac(int *ac, int *i, char **av);
 void	create_stack(t_stack_node **a, int ac, char **av)
 {
 	int		i;
@@ -19,8 +20,7 @@ void	create_stack(t_stack_node **a, int ac, char **av)
 	char	**split;
 
 	i = 1;
-	if (ac == 2)
-		i = 0;
+	set_i_ac(&ac, &i, av);
 	while (av[i])
 	{
 		if (!is_digit(av[i]))
@@ -39,6 +39,15 @@ void	create_stack(t_stack_node **a, int ac, char **av)
 	}
 	if (ac == 2)
 		free_split(av);
+}
+
+void   set_i_ac(int *ac, int *i, char **av)
+{
+	if (*ac == 2)
+	{
+		*ac = ft_count_words(av) + 1;
+		*i = 0;
+	}
 }
 
 void	free_stack(t_stack_node **stack)

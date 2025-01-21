@@ -6,7 +6,7 @@
 /*   By: mel-mora <mel-mora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 20:08:27 by mel-mora          #+#    #+#             */
-/*   Updated: 2025/01/10 16:06:41 by mel-mora         ###   ########.fr       */
+/*   Updated: 2025/01/21 12:15:52 by mel-mora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,14 @@ void	ft_putstr(char *str)
 {
 	while (*str)
 		write(1, str++, 1);
+}
+
+int	ft_count_words(char **str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
 }
