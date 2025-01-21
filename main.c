@@ -6,7 +6,7 @@
 /*   By: mel-mora <mel-mora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 16:54:45 by mel-mora          #+#    #+#             */
-/*   Updated: 2025/01/21 13:08:14 by mel-mora         ###   ########.fr       */
+/*   Updated: 2025/01/21 13:22:24 by mel-mora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	main(int ac, char **av)
 	if (!av[0])
 		return (1);
 	create_stack(&a, ac, av);
-	ac = ft_count_words(av) + 1;
+	ac = ft_count_words(av);
 	set_rank(a);
 	if (!is_sorted(a))
 	{

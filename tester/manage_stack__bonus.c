@@ -6,7 +6,7 @@
 /*   By: mel-mora <mel-mora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 16:40:25 by mel-mora          #+#    #+#             */
-/*   Updated: 2025/01/11 08:40:49 by mel-mora         ###   ########.fr       */
+/*   Updated: 2025/01/21 13:32:23 by mel-mora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,7 @@ void	create_stack(t_stack_node **a, int ac, char **av)
 	char	**split;
 
 	i = 1;
-	if (ac == 2)
-		i = 0;
+	set_i_ac(&ac, &i, av);
 	while (av[i])
 	{
 		if (!is_digit(av[i]))

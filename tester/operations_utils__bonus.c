@@ -6,7 +6,7 @@
 /*   By: mel-mora <mel-mora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 12:28:00 by mel-mora          #+#    #+#             */
-/*   Updated: 2025/01/11 08:41:14 by mel-mora         ###   ########.fr       */
+/*   Updated: 2025/01/21 13:32:33 by mel-mora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,23 @@ void	exit_error(void)
 {
 	write(2, "Error\n", 6);
 	exit(1);
+}
+
+int	ft_count_words(char **str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
+}
+
+void	set_i_ac(int *ac, int *i, char **av)
+{
+	if (*ac == 2)
+	{
+		*ac = ft_count_words(av);
+		*i = 0;
+	}
 }
