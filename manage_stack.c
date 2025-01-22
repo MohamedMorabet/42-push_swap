@@ -6,7 +6,7 @@
 /*   By: mel-mora <mel-mora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 16:40:25 by mel-mora          #+#    #+#             */
-/*   Updated: 2025/01/21 13:22:49 by mel-mora         ###   ########.fr       */
+/*   Updated: 2025/01/21 15:18:21 by mel-mora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,10 @@
 void	create_stack(t_stack_node **a, int ac, char **av)
 {
 	int		i;
-	int		j;
-	char	**split;
 
 	i = 1;
-	set_i_ac(&ac, &i, av);
+	if (ac == 2)
+		i = 0;
 	while (av[i])
 	{
 		if (!is_digit(av[i]))
@@ -38,15 +37,6 @@ void	create_stack(t_stack_node **a, int ac, char **av)
 	}
 	if (ac == 2)
 		free_split(av);
-}
-
-void	set_i_ac(int *ac, int *i, char **av)
-{
-	if (*ac == 2)
-	{
-		*ac = ft_count_words(av);
-		*i = 0;
-	}
 }
 
 void	free_stack(t_stack_node **stack)

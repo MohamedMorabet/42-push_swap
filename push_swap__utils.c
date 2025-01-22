@@ -6,7 +6,7 @@
 /*   By: mel-mora <mel-mora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 16:55:56 by mel-mora          #+#    #+#             */
-/*   Updated: 2025/01/07 20:11:35 by mel-mora         ###   ########.fr       */
+/*   Updated: 2025/01/21 15:13:44 by mel-mora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	intialize_stack(t_stack_node *a, t_stack_node *b)
 	set_position(b);
 	set_target(a, b);
 	set_price(a, b);
-	set_cheapest(a, b);
+	set_cheapest(b);
 }
 
 void	set_position(t_stack_node *stack)
@@ -86,7 +86,7 @@ void	set_price(t_stack_node *a, t_stack_node *b)
 	}
 }
 
-void	set_cheapest(t_stack_node *a, t_stack_node *b)
+void	set_cheapest(t_stack_node *b)
 {
 	t_stack_node	*cheapest;
 

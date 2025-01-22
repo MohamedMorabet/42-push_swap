@@ -6,11 +6,19 @@
 /*   By: mel-mora <mel-mora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 16:54:45 by mel-mora          #+#    #+#             */
-/*   Updated: 2025/01/21 13:22:24 by mel-mora         ###   ########.fr       */
+/*   Updated: 2025/01/21 16:21:22 by mel-mora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	set_ac(int *ac, char **av)
+{
+	if (*ac == 2)
+	{
+		*ac = ft_count_words(av) + 1;
+	}
+}
 
 int	main(int ac, char **av)
 {
@@ -26,7 +34,7 @@ int	main(int ac, char **av)
 	if (!av[0])
 		return (1);
 	create_stack(&a, ac, av);
-	ac = ft_count_words(av);
+	set_ac(&ac, av);
 	set_rank(a);
 	if (!is_sorted(a))
 	{

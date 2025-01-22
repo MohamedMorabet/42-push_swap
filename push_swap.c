@@ -6,7 +6,7 @@
 /*   By: mel-mora <mel-mora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 15:14:16 by mel-mora          #+#    #+#             */
-/*   Updated: 2025/01/07 19:42:30 by mel-mora         ###   ########.fr       */
+/*   Updated: 2025/01/21 15:14:32 by mel-mora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,19 +61,17 @@ void	move_to_a(t_stack_node **a, t_stack_node **b)
 t_stack_node	*get_cheapest(t_stack_node *b)
 {
 	t_stack_node	*tmp_b;
-	t_stack_node	*cheapest;
 
 	tmp_b = b;
 	while (tmp_b)
 	{
 		if (tmp_b->cheapest)
 		{
-			cheapest = tmp_b;
-			break ;
+			return (tmp_b);
 		}
 		tmp_b = tmp_b->next;
 	}
-	return (cheapest);
+	return (NULL);
 }
 
 void	rotate_both(t_stack_node **a, t_stack_node **b, t_stack_node *cheapest)

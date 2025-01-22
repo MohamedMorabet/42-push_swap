@@ -1,6 +1,6 @@
 CC = cc
 
-# CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 
 NAME = push_swap
 
@@ -45,13 +45,13 @@ Bonus_OBJS = ${Bonus_SRCS:.c=.o}
 all : ${NAME}
 
 ${NAME} : ${OBJS}
-		${CC} -o ${NAME} ${OBJS}
+		${CC} ${CFLAGS} -o ${NAME} ${OBJS}
 
 bonus : ${Bonus_OBJS}
-		${CC} -o ${Bonus_name} ${Bonus_OBJS}
+		${CC} ${CFLAGS} -o ${Bonus_name} ${Bonus_OBJS}
 
 %.o : %.c push_swap.h
-		${CC} -o $@ -c $<
+		${CC} ${CFLAGS} -o $@ -c $<
 
 clean :
 		rm -rf ${OBJS} ${Bonus_OBJS}

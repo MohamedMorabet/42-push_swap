@@ -6,7 +6,7 @@
 /*   By: mel-mora <mel-mora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 18:30:14 by mel-mora          #+#    #+#             */
-/*   Updated: 2025/01/10 16:04:47 by mel-mora         ###   ########.fr       */
+/*   Updated: 2025/01/21 15:56:50 by mel-mora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,10 @@ int	main(int ac, char **av)
 	b = NULL;
 	if (ac == 1 || ((ac == 2) && !av[1][0]))
 		return (1);
-	else if (ac == 2)
+	if (ac == 2)
 		av = ft_split(av[1], ' ');
+	if (!av[0])
+		return (1);
 	create_stack(&a, ac, av);
 	opearation = get_next_line(STDIN_FILENO);
 	while (opearation)
@@ -32,12 +34,18 @@ int	main(int ac, char **av)
 		free(opearation);
 		opearation = get_next_line(STDIN_FILENO);
 	}
+	check_sort(a);
+	free_stack(&a);
+	free_stack(&b);
+}
+
+//helper function for the norminette
+void	check_sort(t_stack_node *a)
+{
 	if (!is_sorted(a))
 		ft_putstr("KO\n");
 	else
 		ft_putstr("OK\n");
-	free_stack(&a);
-	free_stack(&b);
 }
 
 void	do_operation(t_stack_node **a, t_stack_node **b, char *operation)
