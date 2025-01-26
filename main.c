@@ -6,7 +6,7 @@
 /*   By: mel-mora <mel-mora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 16:54:45 by mel-mora          #+#    #+#             */
-/*   Updated: 2025/01/26 10:05:46 by mel-mora         ###   ########.fr       */
+/*   Updated: 2025/01/26 14:17:09 by mel-mora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ int	main(int ac, char **av)
 	set_rank(a);
 	if (!is_sorted(a))
 	{
-		if (ac <= 4)
+		if (ac <= 3)
 			tiny_sort(&a);
-		else if (ac <= 6)
+		else if (ac <= 5)
 			sort_five(&a, &b);
 		else
 			push_swap(&a, &b);
