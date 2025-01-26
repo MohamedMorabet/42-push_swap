@@ -6,7 +6,7 @@
 /*   By: mel-mora <mel-mora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 16:54:57 by mel-mora          #+#    #+#             */
-/*   Updated: 2025/01/21 15:54:28 by mel-mora         ###   ########.fr       */
+/*   Updated: 2025/01/26 10:27:53 by mel-mora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,14 @@ int				is_repeated(t_stack_node *stack, int value);
 int				is_sorted(t_stack_node *stack);
 int				is_digit(char *str);
 void			free_stack(t_stack_node **stack);
-int				ft_atoi(const char *str);
+int				ft_atoi(const char *str, int *error_flag);
 void			free_split(char **split);
 int				len_stack(t_stack_node *stack);
 int				ft_count_words(char **str);
-void			check_sort(t_stack_node *a);
+void			check_sort(t_stack_node *a, t_stack_node *b);
+int				is_empty(t_stack_node *stack);
+void			free_and_exit(char **split, t_stack_node **a);
+char			**join_and_split_args(int ac, char **av);
 
 /*
 ** ------------------ Rank and Chunk Operations ------------------
@@ -131,6 +134,7 @@ size_t			ft_strlen(const char *str);
 char			*ft_strdup(const char *s);
 int				ft_isdigit(int c);
 void			ft_putstr(char *str);
+char			*ft_strjoin(char const *s1, char const *s2);
 
 /*
 ** ------------------ Bonus Operations ------------------

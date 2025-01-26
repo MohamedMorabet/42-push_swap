@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   manage_stack.c                                     :+:      :+:    :+:   */
+/*   manage_stack__bonus2.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mel-mora <mel-mora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/04 16:40:25 by mel-mora          #+#    #+#             */
-/*   Updated: 2025/01/26 10:31:13 by mel-mora         ###   ########.fr       */
+/*   Created: 2025/01/26 10:22:05 by mel-mora          #+#    #+#             */
+/*   Updated: 2025/01/26 10:23:12 by mel-mora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 static char	*join_with_space(char *joined, char *arg)
 {
@@ -51,38 +51,29 @@ char	**join_and_split_args(int ac, char **av)
 	return (split);
 }
 
-void	create_stack(t_stack_node **a, int ac, char **av)
+int	ft_strcmp(const char *s1, const char *s2)
 {
-	char	**split;
-	int		i;
-	int		error_flag;
-	int		value;
-
-	split = join_and_split_args(ac, av);
-	if (!split)
-		exit_error();
-	i = 0;
-	while (split[i])
+	while (*s1 && *s2 && *s1 == *s2)
 	{
-		if (!is_digit(split[i]))
-			free_and_exit(split, a);
-		value = ft_atoi(split[i], &error_flag);
-		if (error_flag || is_repeated(*a, value))
-			free_and_exit(split, a);
-		add_node(a, value);
-		i++;
+		s1++;
+		s2++;
 	}
-	free_split(split);
+	return (*(unsigned char *)s1 - *(unsigned char *)s2);
 }
 
-void	free_stack(t_stack_node **stack)
+//check if the stack is empty
+int	is_empty(t_stack_node *stack)
 {
-	t_stack_node	*tmp;
+	if (!stack)
+		return (1);
+	return (0);
+}
 
-	while (*stack)
-	{
-		tmp = *stack;
-		*stack = (*stack)->next;
-		free(tmp);
-	}
+void	free_and_exit(char **split, t_stack_node **a)
+{
+	if (split)
+		free_split(split);
+	if (a)
+		free_stack(a);
+	exit_error();
 }

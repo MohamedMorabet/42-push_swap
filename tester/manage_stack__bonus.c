@@ -6,7 +6,7 @@
 /*   By: mel-mora <mel-mora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 16:40:25 by mel-mora          #+#    #+#             */
-/*   Updated: 2025/01/21 15:13:13 by mel-mora         ###   ########.fr       */
+/*   Updated: 2025/01/26 10:31:54 by mel-mora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,26 @@
 
 void	create_stack(t_stack_node **a, int ac, char **av)
 {
+	char	**split;
 	int		i;
+	int		error_flag;
+	int		value;
 
-	i = 1;
-	if (ac == 2)
-		i = 0;
-	while (av[i])
+	split = join_and_split_args(ac, av);
+	if (!split)
+		exit_error();
+	i = 0;
+	while (split[i])
 	{
-		if (!is_digit(av[i]))
-		{
-			free_stack(a);
-			exit_error();
-		}
-		if (ft_atoi(av[i]) > 2147483647 || ft_atoi(av[i]) < -2147483648)
-		{
-			free_stack(a);
-			exit_error();
-		}
-		if (is_repeated(*a, ft_atoi(av[i])))
-			exit_error();
-		add_node(a, ft_atoi(av[i++]));
+		if (!is_digit(split[i]))
+			free_and_exit(split, a);
+		value = ft_atoi(split[i], &error_flag);
+		if (error_flag || is_repeated(*a, value))
+			free_and_exit(split, a);
+		add_node(a, value);
+		i++;
 	}
-	if (ac == 2)
-		free_split(av);
+	free_split(split);
 }
 
 void	free_stack(t_stack_node **stack)
@@ -68,7 +65,7 @@ static int	check_overflow(unsigned long result, int nb, int sign)
 	return (0);
 }
 
-int	ft_atoi(const char *str)
+int	ft_atoi(const char *str, int *error_flag)
 {
 	int				i;
 	int				sign;
@@ -77,20 +74,22 @@ int	ft_atoi(const char *str)
 	i = 0;
 	result = 0;
 	sign = 1;
+	*error_flag = 0;
 	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
 		i++;
 	if (str[i] == '-' || str[i] == '+')
 	{
-		if (str[i] == '-')
+		if (str[i++] == '-')
 			sign *= -1;
-		i++;
 	}
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		if (check_overflow(result, str[i] - '0', sign))
-			exit_error();
-		result = result * 10 + (str[i] - '0');
-		i++;
+		{
+			*error_flag = 1;
+			return (0);
+		}
+		result = result * 10 + (str[i++] - '0');
 	}
 	return (result * sign);
 }

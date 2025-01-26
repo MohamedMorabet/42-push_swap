@@ -6,7 +6,7 @@
 /*   By: mel-mora <mel-mora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 16:46:08 by mel-mora          #+#    #+#             */
-/*   Updated: 2025/01/11 08:38:58 by mel-mora         ###   ########.fr       */
+/*   Updated: 2025/01/26 10:31:29 by mel-mora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static int	check_overflow(unsigned long result, int nb, int sign)
 	return (0);
 }
 
-int	ft_atoi(const char *str)
+int	ft_atoi(const char *str, int *error_flag)
 {
 	int				i;
 	int				sign;
@@ -38,20 +38,22 @@ int	ft_atoi(const char *str)
 	i = 0;
 	result = 0;
 	sign = 1;
+	*error_flag = 0;
 	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
 		i++;
 	if (str[i] == '-' || str[i] == '+')
 	{
-		if (str[i] == '-')
+		if (str[i++] == '-')
 			sign *= -1;
-		i++;
 	}
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		if (check_overflow(result, str[i] - '0', sign))
-			exit_error();
-		result = result * 10 + (str[i] - '0');
-		i++;
+		{
+			*error_flag = 1;
+			return (0);
+		}
+		result = result * 10 + (str[i++] - '0');
 	}
 	return (result * sign);
 }

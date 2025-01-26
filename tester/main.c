@@ -6,7 +6,7 @@
 /*   By: mel-mora <mel-mora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 18:30:14 by mel-mora          #+#    #+#             */
-/*   Updated: 2025/01/21 15:56:50 by mel-mora         ###   ########.fr       */
+/*   Updated: 2025/01/26 10:30:07 by mel-mora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,18 +34,18 @@ int	main(int ac, char **av)
 		free(opearation);
 		opearation = get_next_line(STDIN_FILENO);
 	}
-	check_sort(a);
+	check_sort(a, b);
 	free_stack(&a);
 	free_stack(&b);
 }
 
 //helper function for the norminette
-void	check_sort(t_stack_node *a)
+void	check_sort(t_stack_node *a, t_stack_node *b)
 {
-	if (!is_sorted(a))
-		ft_putstr("KO\n");
-	else
+	if (is_sorted(a) && is_empty(b))
 		ft_putstr("OK\n");
+	else
+		ft_putstr("KO\n");
 }
 
 void	do_operation(t_stack_node **a, t_stack_node **b, char *operation)
@@ -74,14 +74,4 @@ void	do_operation(t_stack_node **a, t_stack_node **b, char *operation)
 		reverse_rotate_ab__bonus(a, b);
 	else
 		exit_error();
-}
-
-int	ft_strcmp(const char *s1, const char *s2)
-{
-	while (*s1 && *s2 && *s1 == *s2)
-	{
-		s1++;
-		s2++;
-	}
-	return (*(unsigned char *)s1 - *(unsigned char *)s2);
 }

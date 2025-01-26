@@ -16,6 +16,7 @@ SRCS =	algorithms.c \
 		operations__swap_push.c \
 		operations_utils.c \
 		parcing.c \
+		parcing2.c \
 		push_swap__utils.c \
 		push_swap__utils2.c \
 		push_swap__utils3.c \
@@ -36,6 +37,7 @@ Bonus_SRCS = tester/operations__reverse_rotate__bonus.c \
 			tester/ft_split__bonus.c \
 			tester/ft_split__utils__bonus.c \
 			tester/manage_stack__bonus.c \
+			tester/manage_stack__bonus2.c \
 			tester/stack_utils__bonus.c \
 
 OBJS = ${SRCS:.c=.o}
