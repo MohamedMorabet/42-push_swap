@@ -6,7 +6,7 @@
 /*   By: mel-mora <mel-mora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 10:22:05 by mel-mora          #+#    #+#             */
-/*   Updated: 2025/01/26 10:23:12 by mel-mora         ###   ########.fr       */
+/*   Updated: 2025/02/05 15:41:02 by mel-mora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,13 @@ static char	*join_with_space(char *joined, char *arg)
 	return (joined);
 }
 
-char	**join_and_split_args(int ac, char **av)
+char	**join_and_split_args(char **av)
 {
 	char	*joined;
 	char	**split;
 	int		i;
 
-	if (ac == 2)
-		i = 0;
-	else
-		i = 1;
+	i = 1;
 	joined = ft_strdup("");
 	if (!joined)
 		exit_error();

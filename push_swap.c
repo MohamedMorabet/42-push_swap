@@ -6,7 +6,7 @@
 /*   By: mel-mora <mel-mora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 15:14:16 by mel-mora          #+#    #+#             */
-/*   Updated: 2025/01/21 15:14:32 by mel-mora         ###   ########.fr       */
+/*   Updated: 2025/02/05 16:45:38 by mel-mora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@ void	push_swap(t_stack_node **a, t_stack_node **b)
 	chunk = len / 5;
 	if (len <= 200)
 		chunk = 65;
-	else 
-		chunk = len / 5;
 	move_by_chunks(a, b, chunk);
 	tiny_sort(a);
 	while (*b)

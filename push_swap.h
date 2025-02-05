@@ -6,7 +6,7 @@
 /*   By: mel-mora <mel-mora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 16:54:57 by mel-mora          #+#    #+#             */
-/*   Updated: 2025/01/26 10:27:53 by mel-mora         ###   ########.fr       */
+/*   Updated: 2025/02/05 15:42:42 by mel-mora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ typedef struct s_stack_node
 /*
 ** ------------------ Stack Management ------------------
 */
-void			create_stack(t_stack_node **a, int ac, char **av);
+void			create_stack(t_stack_node **a, char **av);
 void			exit_error(void);
 void			add_node(t_stack_node **stack, int value);
 int				is_repeated(t_stack_node *stack, int value);
@@ -52,7 +52,7 @@ int				ft_count_words(char **str);
 void			check_sort(t_stack_node *a, t_stack_node *b);
 int				is_empty(t_stack_node *stack);
 void			free_and_exit(char **split, t_stack_node **a);
-char			**join_and_split_args(int ac, char **av);
+char			**join_and_split_args(char **av);
 
 /*
 ** ------------------ Rank and Chunk Operations ------------------

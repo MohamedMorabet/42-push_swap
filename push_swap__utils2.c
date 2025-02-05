@@ -6,7 +6,7 @@
 /*   By: mel-mora <mel-mora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 18:22:29 by mel-mora          #+#    #+#             */
-/*   Updated: 2025/01/07 19:58:23 by mel-mora         ###   ########.fr       */
+/*   Updated: 2025/02/05 16:00:43 by mel-mora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	finish_rotation_b(t_stack_node **b, t_stack_node *cheapest)
 		if (cheapest->above_moy)
 			rotate_b(b);
 		else
-			reverse_rotate_b(b);
+			reverse_rotate_b(b); 
 	}
 }
 

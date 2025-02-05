@@ -6,20 +6,20 @@
 /*   By: mel-mora <mel-mora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 16:40:25 by mel-mora          #+#    #+#             */
-/*   Updated: 2025/01/26 10:31:54 by mel-mora         ###   ########.fr       */
+/*   Updated: 2025/02/05 15:43:17 by mel-mora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	create_stack(t_stack_node **a, int ac, char **av)
+void	create_stack(t_stack_node **a, char **av)
 {
 	char	**split;
 	int		i;
 	int		error_flag;
 	int		value;
 
-	split = join_and_split_args(ac, av);
+	split = join_and_split_args(av);
 	if (!split)
 		exit_error();
 	i = 0;
