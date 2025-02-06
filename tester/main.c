@@ -6,7 +6,7 @@
 /*   By: mel-mora <mel-mora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 18:30:14 by mel-mora          #+#    #+#             */
-/*   Updated: 2025/02/05 15:43:06 by mel-mora         ###   ########.fr       */
+/*   Updated: 2025/02/06 19:19:46 by mel-mora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,11 @@ int	main(int ac, char **av)
 //helper function for the norminette
 void	check_sort(t_stack_node *a, t_stack_node *b)
 {
+	int				len;
+
+	len = len_stack(a);
+	if (len == 0)
+		return ;
 	if (is_sorted(a) && is_empty(b))
 		ft_putstr("OK\n");
 	else

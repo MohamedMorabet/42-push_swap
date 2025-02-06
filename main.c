@@ -6,7 +6,7 @@
 /*   By: mel-mora <mel-mora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 16:54:45 by mel-mora          #+#    #+#             */
-/*   Updated: 2025/02/05 21:20:32 by mel-mora         ###   ########.fr       */
+/*   Updated: 2025/02/06 19:17:25 by mel-mora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	main(int ac, char **av)
 	create_stack(&a, av);
 	ac = len_stack(a);
 	set_rank(a);
-	if (!is_sorted(a))
+	if (ac != 0 && !is_sorted(a))
 	{
 		if (ac <= 3)
 			tiny_sort(&a);

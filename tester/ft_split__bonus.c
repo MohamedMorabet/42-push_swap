@@ -6,7 +6,7 @@
 /*   By: mel-mora <mel-mora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 08:20:29 by mel-mora          #+#    #+#             */
-/*   Updated: 2025/01/08 20:43:14 by mel-mora         ###   ########.fr       */
+/*   Updated: 2025/02/06 19:16:49 by mel-mora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,6 @@ static size_t	count_words(char const *s, char c)
 
 static char	**free_table(char **tab, size_t j)
 {
-	size_t	i;
-
-	i = 0;
 	while (j > 0)
 		free(tab[--j]);
 	free(tab);
